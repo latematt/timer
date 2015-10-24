@@ -1,0 +1,6 @@
+# idea things
+.idea
+timer.iml
+
+# maven target folder
+target
