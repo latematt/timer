@@ -1,36 +1,59 @@
 package pw.latematt.timer;
 
 /**
+ * Java class used to keep track of time since the last reset.
  * @author Matthew
+ * @since November 7, 2015
  */
 public class Timer {
-    private long lastMS;
+    /**
+     * Last time in milliseconds since this Timer instance was reset
+     */
+    private long lastTime;
 
+    /**
+     * Calls the reset method so the lastTime isn't null or 0.
+     */
     public Timer() {
         reset();
     }
 
-    public long getCurrentMS() {
+    /**
+     * Converts the current java.lang.System#nanoTime to milliseconds and returns it.
+     * @return Current system time in milliseconds.
+     */
+    public long getCurrentTime() {
         return System.nanoTime() / 1000000;
     }
 
-    public long getLastMS() {
-        return lastMS;
+    /**
+     * @return Last time in milliseconds since this Timer instance was reset
+     */
+    public long getLastTime() {
+        return lastTime;
     }
 
-    public void setLastMS(long currentMS) {
-        lastMS = currentMS;
-    }
-
+    /**
+     * Subtracts the lastTime from the current system time in milliseconds.
+     * @return the difference between lastTime and the current system time in milliseconds.
+     */
     public long getDifference() {
-        return getCurrentMS() - lastMS;
+        return getCurrentTime() - lastTime;
     }
 
-    public boolean hasReached(long milliseconds) {
-        return getCurrentMS() - lastMS >= milliseconds;
-    }
-
+    /**
+     * Resets the lastTime.
+     */
     public void reset() {
-        lastMS = getCurrentMS();
+        lastTime = getCurrentTime();
+    }
+
+    /**
+     * Determine if this Timer instance has reached a difference in milliseconds.
+     * @param milliseconds the amount of milliseconds that the Timer instance has to have reached
+     * @return if the Timer instance has reached milliseconds
+     */
+    public boolean hasReached(long milliseconds) {
+        return getDifference() >= milliseconds;
     }
 }

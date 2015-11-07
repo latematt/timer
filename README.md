@@ -6,7 +6,7 @@ To use this library you must create an instance of pw/latematt/timer/Timer as su
 Once you create the instance, it keeps track of the milliseconds between it's creation and the system's current time.  
 
 
-To convert milliseconds to other time measurements (seconds, minutes, hours, etc.) you would use pw/latematt/timer/TimeConverter as such:  
+To convert milliseconds to other time measurements (seconds, minutes, hours, etc.) you would use pw/latematt/timer/convert/TimeConverter as such:  
 `TimeConverter converter = new TimeConverter()`  
 Now, you can convert any method from Timer into a supported measure of time.  
 # Installation
@@ -24,8 +24,8 @@ Maven users:
         <dependency>
     	    <groupId>pw.latematt.timer</groupId>
     	    <artifactId>timer</artifactId>
-    	    <version>1.0-STABLE</version>
+    	    <version>1.1</version>
     	</dependency>
     </dependencies>
     
-Otherwise, download from [releases](https://github.com/latematt/timer/releases) and import as a library in your IDE.
+Otherwise, download the latest release from [here](https://github.com/latematt/timer/releases) and import as a library in your IDE.
